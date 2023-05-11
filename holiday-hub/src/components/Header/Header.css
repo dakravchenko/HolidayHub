@@ -1,0 +1,28 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 170px;
+}
+  
+.categories {
+    flex-basis: 50%;
+}
+  
+.categories-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0;
+  }
+  
+.categories-wrapper li {
+    flex-basis: 33.33%;
+    list-style: none;
+    text-align: center;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 18px;
+
+    color: #666666;
+
+}
