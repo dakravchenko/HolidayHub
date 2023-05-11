@@ -1,3 +1,7 @@
 .welcome-page-wrapper {
     display: flex;
+    flex-direction: row;
+}
+.welcome-page {
+    flex-basis: 50%;
 }
