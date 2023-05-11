@@ -1,7 +1,9 @@
 # HolidayHub
 
-This is a React app where you can find info regarding public holidays worldwide  
+This is a React app where you can find info regarding public holidays worldwide
 [LINK}
+https://date.nager.at/ is used to fetch data
+https://flagsapi.com/#quick and this
 
 ## Features
 
@@ -14,7 +16,6 @@ to be changeg
 ```text
 root
 └── public
-    └── style.css
     └── img
         └── ...
 
@@ -23,12 +24,13 @@ root
     └── index.html
     └── data.js
     └── pages
-        └── discoverPage.js
-        └── initPage.js
-        └── topMovies.js
-    └── views
-        └── errorView.js
-        └── resultView.js
+        └── WelcomePage.js
+        └── FavoriteHolidays.js
+        └── HolidaysByCountry.js
+        └── ExpectedHolidays.js
+    └── components
+        └── to be defined
+        └── to be defined
 ```
 
 ## Must_haves
