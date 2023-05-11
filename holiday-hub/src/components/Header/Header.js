@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../Header/Header.css'
 
 function Header() {
@@ -8,9 +9,9 @@ function Header() {
       <div className='header-line header-box'></div>
       <div className='categories header-box'>
         <ul className='categories-wrapper'>
-          <li>Public Holidays</li>
-          <li>Upcoming Holidays</li>
-          <li>Favorites</li>
+          <Link to="/public-holidays"><li>Public Holidays</li></Link>
+          <Link to="/upcoming-holidays"><li>Upcoming Holidays</li></Link>
+          <Link to="/favorite-holidays"><li>Favorites</li></Link>
         </ul>
       </div>
     </header>
