@@ -1,6 +1,5 @@
 import React from 'react'
 import '../WelcomePageContent/WelcomePageContent.css'
-import HolidaysByCountry from '../../pages/HolidaysByCountry'
 import { Link } from 'react-router-dom'
 
 function WelcomePageContent() {
@@ -13,7 +12,8 @@ function WelcomePageContent() {
                 <Link to="/public-holidays"><button>Discover</button></Link>
             </div>
             <div className='welcome-page-pic welcome-page'>
-                <img src="../../../public/img/Planet.svg" alt='planet'></img>
+                <img src='../../../public/img/planet.svg' alt='planet'></img>
+                <img src="holiday-hub\public\img\Planet.png" alt='planet'></img>
             </div>
         </div>
     </>
