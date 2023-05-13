@@ -1,10 +1,15 @@
 import React from 'react'
 
-function Holiday() {
+function Holiday({holiday}) {
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className='date-container'>
+        <p>{holiday.date}</p>
+      </div>
+      <div className='name-container'>
+        <p>{holiday.name} | <span className='local-name'>{holiday.localName}</span></p>
+      </div>
+    </>
   )
 }
 

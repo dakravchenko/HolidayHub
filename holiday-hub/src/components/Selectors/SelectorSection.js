@@ -8,6 +8,19 @@ function SelectorSection() {
     const [selectedCountry, setSelectedCountry] = useState('NL')
     const [selectedYear, setSelectedYear] = useState('2023')
     const [holidaysToDisplay, setHolidaysToDisplay] = useState([])
+    const countryRef = useRef(null)
+
+    useEffect(() => {
+      const storedCountry = localStorage.getItem('country');
+      if (storedCountry) {
+       countryRef.current = JSON.parse(storedCountry);
+       setSelectedCountry(countryRef.current)
+      } else {
+        countryRef.current = 'NL'
+        setSelectedCountry(countryRef.current)
+      }
+    }, []);
+
     const url = `https://date.nager.at/api/v3/PublicHolidays/${selectedYear}/${selectedCountry}`
 
     useEffect(() => {
@@ -16,6 +29,7 @@ function SelectorSection() {
             const res = await fetch(url);
             const data = await res.json(); 
             setHolidaysToDisplay(data)
+            console.log(data)
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -23,6 +37,8 @@ function SelectorSection() {
     }, [url]);
 
     function handleCountrySelect(value){
+        countryRef.current = value
+        localStorage.setItem('country', JSON.stringify(value))
         setSelectedCountry(value)
     }
     function handleYearSelect(value){
@@ -32,10 +48,10 @@ function SelectorSection() {
   return (
     <>
     <div className='selector-wrapper'>
-      <CountrySelector handleCountrySelect={handleCountrySelect}/>
+      <CountrySelector countryRef={countryRef}handleCountrySelect={handleCountrySelect}/>
       <YearSelector handleYearSelect={handleYearSelect}/>
     </div>
-    <div><HolidayList holidaysToDisplay={holidaysToDisplay}/></div>
+    <div className='holidays-list'><HolidayList holidaysToDisplay={holidaysToDisplay}/></div>
     </>
   )
 }
