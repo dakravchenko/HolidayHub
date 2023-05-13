@@ -6,18 +6,24 @@ import HolidayList from '../Holidays/HolidayList'
 
 function SelectorSection() {
     const [selectedCountry, setSelectedCountry] = useState('NL')
-    const [selectedYear, setSelectedYear] = useState('2023')
+    const [selectedYear, setSelectedYear] = useState(2023)
     const [holidaysToDisplay, setHolidaysToDisplay] = useState([])
-    const countryRef = useRef(null)
+    const countryRef = useRef('')
+    const yearRef = useRef('')
 
     useEffect(() => {
       const storedCountry = localStorage.getItem('country');
       if (storedCountry) {
        countryRef.current = JSON.parse(storedCountry);
        setSelectedCountry(countryRef.current)
-      } else {
-        countryRef.current = 'NL'
-        setSelectedCountry(countryRef.current)
+      }
+    }, []);
+
+    useEffect(() => {
+      const storedYear = localStorage.getItem('year');
+      if (storedYear) {
+        yearRef.current = JSON.parse(storedYear);
+        setSelectedYear(yearRef.current)
       }
     }, []);
 
@@ -42,6 +48,8 @@ function SelectorSection() {
         setSelectedCountry(value)
     }
     function handleYearSelect(value){
+        yearRef.current = value
+        localStorage.setItem('year', JSON.stringify(value))
         setSelectedYear(value)
 
     }
@@ -49,7 +57,7 @@ function SelectorSection() {
     <>
     <div className='selector-wrapper'>
       <CountrySelector countryRef={countryRef}handleCountrySelect={handleCountrySelect}/>
-      <YearSelector handleYearSelect={handleYearSelect}/>
+      <YearSelector yearRef={yearRef} handleYearSelect={handleYearSelect}/>
     </div>
     <div className='holidays-list'><HolidayList holidaysToDisplay={holidaysToDisplay}/></div>
     </>
