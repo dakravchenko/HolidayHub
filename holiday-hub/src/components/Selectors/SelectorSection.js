@@ -2,12 +2,19 @@ import React, {useState, useRef, useEffect} from 'react'
 import CountrySelector from './CountrySelector'
 import YearSelector from './YearSelector'
 import HolidayList from '../Holidays/HolidayList'
+import Flag from './Flag'
 import './Selectors.css'
 
 
 function SelectorSection() {
-    const [selectedCountry, setSelectedCountry] = useState('NL')
-    const [selectedYear, setSelectedYear] = useState(2023)
+  const [selectedCountry, setSelectedCountry] = useState(() => {
+    const storedCountry = localStorage.getItem('country');
+    return storedCountry ? JSON.parse(storedCountry) : 'NL';
+  });
+  const [selectedYear, setSelectedYear] = useState(() => {
+    const storedYear = localStorage.getItem('year');
+    return storedYear ? JSON.parse(storedYear) : 2023;
+  });
     const [holidaysToDisplay, setHolidaysToDisplay] = useState([])
     const [isSelectorSection, setIsSelectorSection] = useState(true) //is this the only way? because i dont need to setIsSelectorSection
     const countryRef = useRef('')
@@ -60,8 +67,12 @@ function SelectorSection() {
       <CountrySelector countryRef={countryRef}handleCountrySelect={handleCountrySelect}/>
       <YearSelector yearRef={yearRef} handleYearSelect={handleYearSelect}/>
     </div>
-    <div className='flag-container'></div>
-    <div className='holidays-list'><HolidayList holidaysToDisplay={holidaysToDisplay} isSelectorSection={isSelectorSection}/></div>
+    <div className='content-wrapper'>
+      <div className='flag-container'>
+        <Flag selectedCountry={selectedCountry}/>
+      </div>
+      <div className='holidays-list'><HolidayList holidaysToDisplay={holidaysToDisplay} isSelectorSection={isSelectorSection}/></div>
+    </div>
     </>
   )
 }

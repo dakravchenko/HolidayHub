@@ -1,14 +1,29 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect, useRef } from 'react';
 import { deepEqual } from '../utils/deepEqual';
 
 export const HolidayContext = createContext();
 
 export const HolidayProvider = ({ children }) => {
-  const [favoriteHolidays, setFavoriteHolidays] = useState([]);
+  const [favoriteHolidays, setFavoriteHolidays] = useState(() => {
+    const storedFavoriteHolidays = localStorage.getItem('favoriteHolidays') 
+    return storedFavoriteHolidays.length > 0 ? JSON.parse(storedFavoriteHolidays) : []
+  });
+  const favoriteHolidaysRef = useRef(favoriteHolidays);
+
+  useEffect(() => {
+    favoriteHolidaysRef.current = favoriteHolidays;
+    localStorage.setItem('favoriteHolidays', JSON.stringify(favoriteHolidays));
+  }, [favoriteHolidays]);
+
+  useEffect(() => {
+    const storedFavoriteHolidays = localStorage.getItem('favoriteHolidays');
+    if (storedFavoriteHolidays) {
+      setFavoriteHolidays(JSON.parse(storedFavoriteHolidays));
+    }
+  }, []);
 
   const addFavoriteHoliday = (holiday) => {
-    // Check if the holiday already exists in favorites
-    const existingHoliday = favoriteHolidays.find(
+    const existingHoliday = favoriteHolidaysRef.current.find(
       (favHoliday) => deepEqual(favHoliday, holiday)
     );
 
@@ -17,12 +32,12 @@ export const HolidayProvider = ({ children }) => {
       return;
     }
 
-    setFavoriteHolidays([...favoriteHolidays, holiday]);
+    setFavoriteHolidays([...favoriteHolidaysRef.current, holiday]);
     console.log('Holiday added as favorite.');
   };
 
   const removeFavoriteHoliday = (holiday) => {
-    const updatedHolidays = favoriteHolidays.filter(
+    const updatedHolidays = favoriteHolidaysRef.current.filter(
       (favHoliday) => !deepEqual(favHoliday, holiday)
     );
 

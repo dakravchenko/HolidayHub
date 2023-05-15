@@ -9,9 +9,9 @@ select {
     border-radius: 10px;
     border-style: none;
 
-    font-family: 'Mulish';
+    font-family: 'Inter';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 25px;
     line-height: 31px;
     padding-left: 20px;
@@ -20,7 +20,7 @@ select {
 
     position: relative;
     appearance: none;
-    padding-right: 30px; /*padding is not applied*/
+    padding-right: 30px; /*padding has not been applied*/
     background-image: url(../../img/Polygon1.svg), linear-gradient(to right, #FFFFFF, #FFFFFF);
     background-repeat: no-repeat;
     background-position: right center, center;
