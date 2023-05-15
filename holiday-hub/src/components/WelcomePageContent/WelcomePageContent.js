@@ -1,6 +1,7 @@
 import React from 'react'
 import '../WelcomePageContent/WelcomePageContent.css'
 import { Link } from 'react-router-dom'
+import image from '../../img/planet.svg';
 
 function WelcomePageContent() {
 
@@ -12,8 +13,8 @@ function WelcomePageContent() {
                 <Link to="/public-holidays"><button>Discover</button></Link>
             </div>
             <div className='welcome-page-pic welcome-page'>
-                <img src='../../../public/img/planet.svg' alt='planet'></img>
-                <img src="holiday-hub\public\img\Planet.png" alt='planet'></img>
+                <img src={image} alt='planet'></img>
+          
             </div>
         </div>
     </>

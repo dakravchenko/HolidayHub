@@ -1,0 +1,28 @@
+.selector-wrapper {
+    display: flex 
+}
+select {
+    flex-basis: 50%;
+    margin: 30px;
+    height: 67px;
+    background-color:  #FFFFFF;
+    border-radius: 10px;
+    border-style: none;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 31px;
+    padding-left: 20px;
+
+    color: #666666;
+
+    position: relative;
+    appearance: none;
+    padding-right: 30px; /*padding is not applied*/
+    background-image: url(../../img/Polygon1.svg), linear-gradient(to right, #FFFFFF, #FFFFFF);
+    background-repeat: no-repeat;
+    background-position: right center, center;
+    background-size: 15px, auto;
+}

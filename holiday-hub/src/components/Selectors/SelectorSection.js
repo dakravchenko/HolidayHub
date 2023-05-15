@@ -2,12 +2,14 @@ import React, {useState, useRef, useEffect} from 'react'
 import CountrySelector from './CountrySelector'
 import YearSelector from './YearSelector'
 import HolidayList from '../Holidays/HolidayList'
+import './Selectors.css'
 
 
 function SelectorSection() {
     const [selectedCountry, setSelectedCountry] = useState('NL')
     const [selectedYear, setSelectedYear] = useState(2023)
     const [holidaysToDisplay, setHolidaysToDisplay] = useState([])
+    const [isSelectorSection, setIsSelectorSection] = useState(true) //is this the only way? because i dont need to setIsSelectorSection
     const countryRef = useRef('')
     const yearRef = useRef('')
 
@@ -58,7 +60,8 @@ function SelectorSection() {
       <CountrySelector countryRef={countryRef}handleCountrySelect={handleCountrySelect}/>
       <YearSelector yearRef={yearRef} handleYearSelect={handleYearSelect}/>
     </div>
-    <div className='holidays-list'><HolidayList holidaysToDisplay={holidaysToDisplay}/></div>
+    <div className='flag-container'></div>
+    <div className='holidays-list'><HolidayList holidaysToDisplay={holidaysToDisplay} isSelectorSection={isSelectorSection}/></div>
     </>
   )
 }

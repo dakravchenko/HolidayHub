@@ -1,9 +1,13 @@
 .welcome-page-wrapper {
     display: flex;
     flex-direction: row;
+    padding: 0 100px
+}
+.welcome-page-content {
+    flex-basis: 40%
 }
 .welcome-page {
-    flex-basis: 50%;
+    justify-content: space-between;
 }
 .welcome-page h1 {
     font-family: 'Mulish';

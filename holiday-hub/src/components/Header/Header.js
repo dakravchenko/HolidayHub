@@ -1,12 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../Header/Header.css'
+import imageLine from '../../img/Line1.svg';
+import imageLogo from '../../img/HH.svg';
 
 function Header() {
   return (
     <header className='header-wrapper'>
-      <div className='logo header-box'></div>
-      <div className='header-line header-box'></div>
+      <div className='logo header-box'>
+        <Link to="/"><img src={imageLogo} alt='logo'></img></Link>
+      </div>
+      <div className='header-line header-box'>
+      <img src={imageLine} alt='logo'></img>
+      </div>
       <div className='categories header-box'>
         <ul className='categories-wrapper'>
           <Link to="/public-holidays"><li>Public Holidays</li></Link>
