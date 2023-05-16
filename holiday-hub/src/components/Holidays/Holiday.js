@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './Holidays.css'
 import Heart from '../Heart/Heart'
+import Flag from '../Selectors/Flag';
 
 function Holiday({holiday, isSelectorSection}) {
   const [isHovered, setIsHovered] = useState(false);
@@ -33,7 +34,7 @@ function Holiday({holiday, isSelectorSection}) {
   ) : (
     <>
     <div className='country-container'>
-       <p>{holiday.countryCode}</p>
+       <Flag selectedCountry={holiday.countryCode}/>
     </div>
       <div className='date-container holiday'
       onMouseEnter={handleMouseEnter}

@@ -10,6 +10,12 @@
 }
 .holiday-wrapper {
     display: flex;
+    justify-content:flex-end;
+    position: relative;
+}
+.country-container {
+    margin-right: 3%;
+    margin-top: 20px;
 }
 .holiday {
     height: 74px;
@@ -22,6 +28,7 @@
 }
 .name-container {
     flex-basis: 60%;
+    justify-content: center;
 }
 .date-container {
     flex-basis: 10%;
@@ -33,9 +40,12 @@ p {
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #666666
+    color: #666666;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.date-container p {
+    white-space: nowrap;
 }
 .local-name {
     
@@ -43,10 +53,29 @@ p {
     font-size: 20px;
     font-weight: 600;
     line-height: 25px;
-    letter-spacing: 0em;
-    text-align: left;
     color: #DDAC62;
 
 }
+.other-sections-flag {
+    width: 50px
+}
+.selector-section-flag {
+    width: 200px
+  }
 
-
+  @media screen and (max-width: 850px) {
+    .flag-container {
+        flex-basis: 15%;
+    }
+    .selector-section-flag {
+        width: 100%;
+      }
+    .date-container {
+        flex-basis: 15%;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    p, .local-name {
+        font-size: 16px;
+    }
+  }

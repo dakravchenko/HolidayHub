@@ -3,7 +3,7 @@
 }
 select {
     flex-basis: 50%;
-    margin: 30px;
+    margin: 0 30px 30px 0;
     height: 67px;
     background-color:  #FFFFFF;
     border-radius: 10px;
@@ -14,7 +14,7 @@ select {
     font-weight: 400;
     font-size: 25px;
     line-height: 31px;
-    padding-left: 20px;
+    padding-right: 20px;
 
     color: #666666;
 
@@ -26,3 +26,18 @@ select {
     background-position: right center, center;
     background-size: 15px, auto;
 }
+@media screen and (max-width: 800px) {
+    .year-selector{
+        flex-basis: 25%;
+    }
+    .country-selector{
+        flex-basis: 30%;
+    }
+    select {
+        justify-content: space-between;
+        margin: 0px 10px 40px 0;
+        font-size: 20px;
+        height: 50px;
+
+    }
+  }

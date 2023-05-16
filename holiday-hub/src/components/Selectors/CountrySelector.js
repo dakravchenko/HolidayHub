@@ -18,7 +18,7 @@ function CountrySelector({handleCountrySelect, countryRef}) {
         })();
     }, []);
   return (
-    <select value={countryRef.current} onChange={e => handleCountrySelect(e.target.value)}>
+    <select className='country-selector'value={countryRef.current} onChange={e => handleCountrySelect(e.target.value)}>
      {countriesData.map(country => (
         <option key={country.countryCode} value={country.countryCode} label={country.name}>{country.name}</option>
         

@@ -1,32 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-const Flag = ({selectedCountry}) => {
-    const [flagImageUrl, setFlagImageUrl] = useState()
+const Flag = ({ selectedCountry , isSelectorSection}) => {
 
-  useEffect(() => {
-    (async () => {
-      const options = {
-        method: 'GET',
-        url: `https://wft-geo-db.p.rapidapi.com/v1/geo/countries/${selectedCountry}`,
-        headers: {
-          'X-RapidAPI-Key': '9ccfe931aamshf70cd0fb3b41773p13e441jsndac4f1afa291',
-          'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
-        },
-      };
+  const countryCode = selectedCountry.toLowerCase();
+  const imagePath = `https://flagcdn.com/w160/${countryCode}.png`;
 
-      try {
-        const response = await axios.request(options);
-        setFlagImageUrl(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  }, [selectedCountry]);
-
-  return (
+  return isSelectorSection? (
     <>
-        <img src={flagImageUrl} alt='flag'></img>
+      <img className='selector-section-flag' src={imagePath} alt='flag' />
+    </>
+  ) : (
+    <>
+      <img className='other-sections-flag' src={imagePath} alt='flag' />
     </>
   );
 };

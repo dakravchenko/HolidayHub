@@ -1,14 +1,17 @@
 .welcome-page-wrapper {
     display: flex;
-    flex-direction: row;
-    padding: 0 100px
-}
-.welcome-page-content {
-    flex-basis: 40%
-}
-.welcome-page {
-    justify-content: space-between;
-}
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .welcome-page-content,
+  .welcome-page-pic {
+    flex-basis: 50%; 
+    text-align: center; 
+    padding-bottom: 40px;
+  }
+  
 .welcome-page h1 {
     font-family: 'Mulish';
     font-style: normal;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import '../Header/Header.css'
 import imageLine from '../../img/Line1.svg';
@@ -11,7 +11,7 @@ function Header() {
         <Link to="/"><img src={imageLogo} alt='logo'></img></Link>
       </div>
       <div className='header-line header-box'>
-      <img src={imageLine} alt='logo'></img>
+      <img src={imageLine} alt='line'></img>
       </div>
       <div className='categories header-box'>
         <ul className='categories-wrapper'>

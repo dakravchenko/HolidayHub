@@ -1,0 +1,20 @@
+.name-container {
+    position: relative
+}
+.heart-container {
+    position: absolute;
+    bottom: 20%;
+    left: 92%;
+    z-index: 1;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .heart-container {
+        left: 89%;
+      }
+  }
+  @media screen and (max-width: 980px) {
+    .heart-container {
+        left: 85%;
+      }
+  }

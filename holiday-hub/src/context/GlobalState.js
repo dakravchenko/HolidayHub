@@ -5,8 +5,8 @@ export const HolidayContext = createContext();
 
 export const HolidayProvider = ({ children }) => {
   const [favoriteHolidays, setFavoriteHolidays] = useState(() => {
-    const storedFavoriteHolidays = localStorage.getItem('favoriteHolidays') 
-    return storedFavoriteHolidays.length > 0 ? JSON.parse(storedFavoriteHolidays) : []
+    const storedFavoriteHolidays = localStorage.getItem('favoriteHolidays');
+    return storedFavoriteHolidays ? JSON.parse(storedFavoriteHolidays) : [];
   });
   const favoriteHolidaysRef = useRef(favoriteHolidays);
 
@@ -15,34 +15,29 @@ export const HolidayProvider = ({ children }) => {
     localStorage.setItem('favoriteHolidays', JSON.stringify(favoriteHolidays));
   }, [favoriteHolidays]);
 
-  useEffect(() => {
-    const storedFavoriteHolidays = localStorage.getItem('favoriteHolidays');
-    if (storedFavoriteHolidays) {
-      setFavoriteHolidays(JSON.parse(storedFavoriteHolidays));
-    }
-  }, []);
-
   const addFavoriteHoliday = (holiday) => {
-    const existingHoliday = favoriteHolidaysRef.current.find(
-      (favHoliday) => deepEqual(favHoliday, holiday)
-    );
+    setFavoriteHolidays((prevFavoriteHolidays) => {
+      const isExistingHoliday = prevFavoriteHolidays.some((favHoliday) =>
+        deepEqual(favHoliday, holiday)
+      );
 
-    if (existingHoliday) {
-      console.log('Holiday already added as favorite.');
-      return;
-    }
+      if (isExistingHoliday) {
+        alert('Holiday already added as a favorite.');
+        return prevFavoriteHolidays;
+      }
 
-    setFavoriteHolidays([...favoriteHolidaysRef.current, holiday]);
-    console.log('Holiday added as favorite.');
+      const updatedHolidays = [...prevFavoriteHolidays, holiday];
+      return updatedHolidays;
+    });
   };
 
   const removeFavoriteHoliday = (holiday) => {
-    const updatedHolidays = favoriteHolidaysRef.current.filter(
-      (favHoliday) => !deepEqual(favHoliday, holiday)
-    );
-
-    setFavoriteHolidays(updatedHolidays);
-    console.log('Holiday removed from favorites.');
+    setFavoriteHolidays((prevFavoriteHolidays) => {
+      const updatedHolidays = prevFavoriteHolidays.filter(
+        (favHoliday) => !deepEqual(favHoliday, holiday)
+      );
+      return updatedHolidays;
+    });
   };
 
   const contextValue = {
@@ -50,6 +45,13 @@ export const HolidayProvider = ({ children }) => {
     addFavoriteHoliday,
     removeFavoriteHoliday,
   };
+
+  useEffect(() => {
+    const storedFavoriteHolidays = localStorage.getItem('favoriteHolidays');
+    if (storedFavoriteHolidays) {
+      setFavoriteHolidays(JSON.parse(storedFavoriteHolidays));
+    }
+  }, []);
 
   return (
     <HolidayContext.Provider value={contextValue}>

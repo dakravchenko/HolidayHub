@@ -16,7 +16,7 @@ function SelectorSection() {
     return storedYear ? JSON.parse(storedYear) : 2023;
   });
     const [holidaysToDisplay, setHolidaysToDisplay] = useState([])
-    const [isSelectorSection, setIsSelectorSection] = useState(true) //is this the only way? because i dont need to setIsSelectorSection
+    const isSelectorSection = true;
     const countryRef = useRef('')
     const yearRef = useRef('')
 
@@ -64,12 +64,12 @@ function SelectorSection() {
   return (
     <>
     <div className='selector-wrapper'>
-      <CountrySelector countryRef={countryRef}handleCountrySelect={handleCountrySelect}/>
+      <CountrySelector countryRef={countryRef}handleCountrySelect={handleCountrySelect} />
       <YearSelector yearRef={yearRef} handleYearSelect={handleYearSelect}/>
     </div>
     <div className='content-wrapper'>
       <div className='flag-container'>
-        <Flag selectedCountry={selectedCountry}/>
+        <Flag selectedCountry={selectedCountry} isSelectorSection={isSelectorSection}/>
       </div>
       <div className='holidays-list'><HolidayList holidaysToDisplay={holidaysToDisplay} isSelectorSection={isSelectorSection}/></div>
     </div>

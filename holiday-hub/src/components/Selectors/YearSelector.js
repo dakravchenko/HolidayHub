@@ -8,7 +8,7 @@ function YearSelector({handleYearSelect, yearRef}) {
       options.push(<option key={i} value={i}>{i}</option>);
     }
   return (
-    <select value={yearRef.current} onChange={(e) => handleYearSelect(e.target.value)}>
+    <select class='year-selector'value={yearRef.current} onChange={(e) => handleYearSelect(e.target.value)}>
       {options}
     </select>
   )
