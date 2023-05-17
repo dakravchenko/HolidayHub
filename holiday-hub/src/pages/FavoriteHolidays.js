@@ -15,7 +15,9 @@ function FavoriteHolidays() {
   ) : (
     <>
       <Header/>
-      <p>nothing to display</p>
+      <div class="empty-favorites">
+      <p>Nothing to display</p>
+      </div>
     </>
   )
 }

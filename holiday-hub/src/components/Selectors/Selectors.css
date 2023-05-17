@@ -3,7 +3,7 @@
 }
 select {
     flex-basis: 50%;
-    margin: 0 30px 30px 0;
+    margin: 0px 30px 30px 0;
     height: 67px;
     background-color:  #FFFFFF;
     border-radius: 10px;
@@ -20,11 +20,18 @@ select {
 
     position: relative;
     appearance: none;
-    padding-right: 30px; /*padding has not been applied*/
+    padding-left: 20px;
     background-image: url(../../img/Polygon1.svg), linear-gradient(to right, #FFFFFF, #FFFFFF);
     background-repeat: no-repeat;
-    background-position: right center, center;
-    background-size: 15px, auto;
+    background-position: 96%;
+    background-size: 20px, auto;
+
+    z-index: 1;
+    
+}
+
+.selector-section-flag {
+    filter: drop-shadow(10px 10px 50px rgba(102, 102, 102, 0.8));
 }
 @media screen and (max-width: 800px) {
     .year-selector{
