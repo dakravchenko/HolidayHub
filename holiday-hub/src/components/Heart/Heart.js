@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import { HolidayContext } from '../../context/GlobalState';
 import emptyHeart from '../../img/Heart.svg';
 import filledHeart from '../../img/Heart-full.svg';
