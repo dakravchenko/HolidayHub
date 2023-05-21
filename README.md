@@ -2,7 +2,7 @@
 
 This is a React app where you can find info regarding public holidays worldwide
 
-[Click Here](https://date.nager.at/) is used to fetch data
+[date.nager.at](https://date.nager.at/) is used to fetch data
 
 ## Try it out
 
