@@ -1,9 +1,13 @@
 # HolidayHub
 
 This is a React app where you can find info regarding public holidays worldwide
-[LINK}
-https://date.nager.at/ is used to fetch data
-https://flagsapi.com/#quick and this
+
+[date.nager.at](https://date.nager.at/) is used to fetch data
+
+## Try it out
+
+[Click Here](https://lucky-squirrel-abf1d1.netlify.app)
+
 
 ## Features
 
@@ -12,34 +16,38 @@ https://flagsapi.com/#quick and this
 - Create a list of your favorite holidays
 
 ## Folder Structure
-to be changeg
 ```text
-root
-└── public
-    └── img
-        └── ...
 
 └── src
     └── app.js
-    └── index.html
-    └── data.js
+    └── 
     └── pages
         └── WelcomePage.js
         └── FavoriteHolidays.js
         └── HolidaysByCountry.js
         └── ExpectedHolidays.js
     └── components
-        └── to be defined
-        └── to be defined
+        └── Header
+        └── Heart
+        └── Holidays
+        └── Selectors
+        └── Holidays
+        └── WelcomePageContent
+        
+    └── context
+    └── utils
+    └── hooks
+        
 ```
 
 ## Must_haves
 
 - customised hooks (to fetch data)
 - basic hooks (useState, useEffect, useRef)
-- list of favorite holidays
-- responsive design
-- local storage
+- GlobalState
+- list of favorite holidays (holidays can be added as favorites from different pages)
+- local storage (current selected country and the year will be added to local storage, as well as favorite holidays)
 
 ## nice to have
-?
+- responsive design
+- tests using React Tests Library
