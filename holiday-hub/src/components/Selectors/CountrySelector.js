@@ -5,7 +5,6 @@ function CountrySelector({handleCountrySelect, countryRef}) {
     const [countriesData, setCountriesData] = useState([])
     const url = 'https://date.nager.at/api/v3/AvailableCountries'
   
-    
     useEffect(() => {
         (async () => {
           try {
